@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import Map, { GoogleApiWrapper } from 'google-maps-react'
 import { searchNearby } from 'utils/googleApiHelpers'
+
 import Header from 'components/Header/Header'
+import Sidebar from 'components/Sidebar/Sidebar'
 
 import styles from './styles.module.css'
 
@@ -43,11 +45,10 @@ export class Container extends Component {
           visible={ false }
           className={ styles.wrapper }>
             <Header />
-            <div className={ styles.content }>
-              {this.state.places.map(place => {
-                return (<div key={ place.id }>{ place.name}</div>)
-              })}
-            </div>
+            <Sidebar
+              title={ 'Restaurants' }
+              places={ this.state.places }/>
+
           </Map>
       </div>
     )
@@ -58,3 +59,9 @@ export class Container extends Component {
 export default GoogleApiWrapper({
   apiKey: __GAPI_KEY__
 })(Container)
+
+/* <div className={ styles.content }>
+  {this.state.places.map(place => {
+    return (<div key={ place.id }>{ place.name}</div>)
+  })}
+</div> */

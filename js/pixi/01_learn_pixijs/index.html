@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>01 Pixi.js</title>
+    <style>
+      body, html {
+        margin: 0;
+        height: 100%;
+        width: 100%;
+      }
+
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.2.2/pixi.min.js"></script>
+    <script>
+      let width = window.innerWidth * 0.9
+      let height = window.innerHeight * 0.8
+      let renderer = PIXI.autoDetectRenderer( width, height )
+      document.body.appendChild( renderer.view )
+      let stage = new PIXI.Container()
+
+      renderer.view.style.border = "1px dashed black"
+      renderer.backgroundColor = 0xFFFFFF;
+
+      renderer.render( stage )
+    </script>
+  </body>
+</html>
